@@ -5,10 +5,9 @@ You have been asked to create a program to move rovers around the surface of Mar
 The surface of Mars is represented by a Plateau. You can make the assumption that the Plateau is a square/rectangular grid for the purpose of this task.
 Rovers navigate the Plateau so they can use their special cameras 📷 and robot arms 🦾 to collect samples back to Planet Earth 🌏
 
-##2️⃣ Your Task
-👉
-Choose an approach
-that you feel comfortable with to receive input into your program:
+## 2️⃣ Your Task
+
+👉 Choose an approach that you feel comfortable with to receive input into your program:
 
 1. feeding input values into unit tests 👍
 2. input via a console application; 🔥
@@ -21,7 +20,8 @@ that you feel comfortable with to receive input into your program:
    👉 Apply Test-Driven Development (TDD) to test-drive your solution as you build it.
    👉 Create production-quality code. This means you have thought carefully about your code design and that your code is clean and well-tested.
 
-###⌨️ Inputs into the Program
+### ⌨️ Inputs into the Program
+
 **First Line of Input to the Program**
 The first line inputted into the program represents the upper-right coordinates of the Plateau.
 5 5
@@ -31,19 +31,23 @@ N.B. Assume that the lower-left coordinate is (0, 0).
 Subsequent Lines of Input into the Program - Input to Rovers
 This represents the instructions to move the rovers.
 Each rover receives **two lines of input.**
+
 **First Line of Input to a Rover**
 The Rover’s position is represented by two integers representing the X and Y coordinates and a letter representing where the Rover is facing (its orientation).
 1 2 N
+
 **Second Line of Input to a Rover**
 A string of letters representing the instructions to move the Rover around the Plateau.
 
 **📏 Movement Rules**
 Rovers move sequentially, this means that the first Rover needs to finish moving first before the next one can move.
 
-###➡️ Output
+### ➡️ Output
+
 For each Rover, the output represents its final position (final coordinates and where it is facing).
 
-###Example Test Case
+### Example Test Case
+
 Lines of Input to the Program:
 5 5
 1 2 N
