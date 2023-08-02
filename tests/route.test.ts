@@ -71,6 +71,17 @@ describe("test checkRouteOnMap function", () => {
     const myMap: Map = [[]];
     const myRoute = "MMSG";
     const expected = false;
-    expect(checkRouteOnMap(0, 0, myRoute, myMap)).toBe(expected);
+    expect(checkRouteOnMap(0, 0, "E", myRoute, myMap)).toEqual(expected);
+  });
+
+  test("it returns false if map is empty", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    const myRoute = "MMRM";
+    const endPoint: Position = { x: 1, y: 2, direction: "E" };
+    expect(checkRouteOnMap(0, 0, "N", myRoute, myMap)).toEqual(endPoint);
   });
 });

@@ -2,17 +2,25 @@ import { Map, Position } from "./types";
 import { calculateInstruction } from "./calculate_instructions";
 const currentDate = new Date();
 
-export function checkRouteOnMap(x: number, y: number, route: string, map: Map) {
+export function checkRouteOnMap(
+  x: number,
+  y: number,
+  direction: string,
+  route: string,
+  map: Map
+): Position | boolean {
   // Map is checked in plateauInit()
   // Check Route string symbols
-  if (checkRoute(route) === false) return;
+  if (checkRoute(route) === false) return false;
 
-  let currentPosition: Position = { x: x, y: y, direction: route[0] };
+  let currentPosition: Position = { x: x, y: y, direction: direction };
+  console.log(currentPosition);
   // Calculate commands
   route?.split("").forEach((command) => {
     currentPosition = calculateInstruction(currentPosition, command);
   });
-  return false;
+  console.log(currentPosition);
+  return currentPosition;
 }
 
 // Is route a valid route from the symbols point of view???
@@ -28,7 +36,7 @@ export function checkRoute(route: string): boolean {
     });
     return false;
   }
-  // string with invalid characters
+  //string with invalid characters
   if (isAction(route) === false) {
     console.log({
       code: "02",
