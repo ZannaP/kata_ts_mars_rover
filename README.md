@@ -63,3 +63,16 @@ Lines of Input to the Program:
 1 2 N
 
 LMLMLMLMM
+
+### 🗺️Instructing a Rover to Move Around the Plateau
+
+💻 To move a Rover around the Plateau, a string of letters is sent to a Rover.
+Here are the letters and their resultant action:
+
+**L** Spins the Rover 90 degrees Left without moving from the current coordinate point
+
+**R** Spins the Rover 90 degrees Right without moving from the current coordinate point
+
+**M** Moves the Rover forward by one grid point, maintaining the same heading/orientation
+
+N.B. Assume that the square directly North from (x, y) is (x, y+1).
