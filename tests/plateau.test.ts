@@ -12,12 +12,12 @@ describe("test plateauInit function", () => {
     ];
     expect(plateauInit(1, 1)).toEqual(expected);
   });
-  test("it return a matrix 4 x 3 filled with 1 when passed (4,3)", () => {
+  test("it return a matrix 5 x 3 filled with 1 when passed (4,2)", () => {
     const expected = [
-      [1, 1, 1, 1],
-      [1, 1, 1, 1],
-      [1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
     ];
-    expect(plateauInit(4, 3)).toEqual(expected);
+    expect(plateauInit(4, 2)).toEqual(expected);
   });
 });

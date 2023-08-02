@@ -14,6 +14,50 @@ describe("test checkRoute function", () => {
   });
 });
 
+describe("test checkPointOnMap function", () => {
+  // we have matrix 5 x 3 filled with 1 when top right point is (4,2)
+  test("it returns false if the point position is not on the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(7, 10, myMap)).toBe(false);
+  });
+  test("it returns true if the point position is in the left bottom corner of the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(0, 0, myMap)).toBe(true);
+  });
+  test("it returns true if the point position is in the top right corner of the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(4, 2, myMap)).toBe(true);
+  });
+  test("it returns false if the point position is in the (top+1, right) corner of the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(4, 3, myMap)).toBe(false);
+  });
+  test("it returns false if the point position is in the (top, right+1) corner of the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(5, 2, myMap)).toBe(false);
+  });
+});
+
 describe("test checkRouteOnMap function", () => {
   test("it returns false if map is empty", () => {
     const myMap: Map = [[]];

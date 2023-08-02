@@ -10,7 +10,7 @@ export type Position = {
 // -1 if point is inaccessible (physical obstacle like a hole)
 //  0 if accessibility is unknown
 //  1 path is free
-export type Map = [Array<-1 | 0 | 1>];
+export type Map = Array<Array<-1 | 0 | 1>>;
 
 export type ErrorLogMessage = {
   code: string;
