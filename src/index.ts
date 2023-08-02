@@ -3,8 +3,11 @@ import { moveRover } from "./rover";
 import { plateauInit } from "./plateau";
 
 function processRoverMove() {
-  //
-  return [0, 0];
+  const inputPlateauSizeX = 5;
+  const inputPlateauSizeY = 3;
+  const startPosition = [[0, 0], "N"];
+  const route = "MMSSM";
+
+  const currentMap = plateauInit(inputPlateauSizeX, inputPlateauSizeY);
 }
-const currentMap = plateauInit([1, 1]);
-console.log(processRoverMove());
+processRoverMove();
