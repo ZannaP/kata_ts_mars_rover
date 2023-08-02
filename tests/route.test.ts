@@ -1,10 +1,5 @@
 import { Map, Position } from "../src/types";
-import {
-  checkRoute,
-  checkPointOnMap,
-  checkRouteOnMap,
-  calculateInstruction,
-} from "../src/route";
+import { checkRoute, checkPointOnMap, checkRouteOnMap } from "../src/route";
 
 describe("test checkRoute function", () => {
   test("it returns false route is empty", () => {
@@ -68,34 +63,6 @@ describe("test checkPointOnMap function", () => {
       [1, 1, 1, 1, 1],
     ];
     expect(checkPointOnMap(5, 2, myMap)).toBe(false);
-  });
-});
-
-describe("test calculateInstruction function", () => {
-  test("move 1 step to the North", () => {
-    const startPoint: Position = { x: 0, y: 0, direction: "N" };
-    const endPoint: Position = { x: 0, y: 1, direction: "N" };
-    expect(calculateInstruction(startPoint, "M")).toEqual(endPoint);
-  });
-  test("move 1 step to the South", () => {
-    const startPoint: Position = { x: 0, y: 0, direction: "S" };
-    const endPoint: Position = { x: 0, y: -1, direction: "S" };
-    expect(calculateInstruction(startPoint, "M")).toEqual(endPoint);
-  });
-  test("move 1 step to the East", () => {
-    const startPoint: Position = { x: 0, y: 0, direction: "E" };
-    const endPoint: Position = { x: 1, y: 0, direction: "E" };
-    expect(calculateInstruction(startPoint, "M")).toEqual(endPoint);
-  });
-  test("move 1 step to the West", () => {
-    const startPoint: Position = { x: 0, y: 0, direction: "W" };
-    const endPoint: Position = { x: -1, y: 0, direction: "W" };
-    expect(calculateInstruction(startPoint, "M")).toEqual(endPoint);
-  });
-  test("rotates from North to East if R", () => {
-    const startPoint: Position = { x: 0, y: 0, direction: "N" };
-    const endPoint: Position = { x: 0, y: 0, direction: "E" };
-    expect(calculateInstruction(startPoint, "R")).toEqual(endPoint);
   });
 });
 

@@ -1,5 +1,4 @@
 export type Direction = "N" | "E" | "S" | "W";
-export const DIRECTIONS = ["N", "E", "S", "W"];
 export type Action = "M" | "R" | "L";
 export type Position = {
   x: number;
