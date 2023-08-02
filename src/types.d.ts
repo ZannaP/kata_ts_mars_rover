@@ -1,4 +1,5 @@
 export type Direction = "N" | "E " | "S" | "W";
+export type Action = "M" | "R" | "L";
 export type Coordinates = [number, number];
 export type Position = {
   point: Coordinates;
@@ -10,3 +11,11 @@ export type Position = {
 //  0 if accessibility is unknown
 //  1 path is free
 export type Map = [Array<-1 | 0 | 1>];
+
+export type ErrorLogMessage = {
+  code: string;
+  level: "WARNING" | "INFO" | "ERROR";
+  timestamp: number;
+  author: string;
+  message: string;
+};
