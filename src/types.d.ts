@@ -1,9 +1,10 @@
-export type Direction = "N" | "E " | "S" | "W";
+export type Direction = "N" | "E" | "S" | "W";
+export const DIRECTIONS = ["N", "E", "S", "W"];
 export type Action = "M" | "R" | "L";
-export type Coordinates = [number, number];
 export type Position = {
-  point: Coordinates;
-  direction: Direction;
+  x: number;
+  y: number;
+  direction: string;
 };
 // Map: x, y, status
 // status:
