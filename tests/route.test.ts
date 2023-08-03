@@ -1,16 +1,16 @@
 import { Map, Position } from "../src/types";
-import { validateRoute, checkPointOnMap, checkRouteOnMap } from "../src/route";
+import { validatedRoute, checkPointOnMap, checkRouteOnMap } from "../src/route";
 
-describe("test checkRoute function", () => {
-  test("it returns false route is empty", () => {
-    const myRoute = "";
-    const expected = false;
-    expect(validateRoute(myRoute)).toEqual(expected);
+describe("test validatedRoute function", () => {
+  test("it throws an error if route string is empty", () => {
+    expect(() => {
+      validatedRoute("");
+    }).toThrow("The route string is empty");
   });
-  test("if route contains symbols not from <MRLNWES> returns false", () => {
-    const myRoute = "W#3E";
-    const expected = false;
-    expect(validateRoute(myRoute)).toEqual(expected);
+  test("it throws an error if route contains symbols not from <MRL>", () => {
+    expect(() => {
+      validatedRoute("W#3E");
+    }).toThrow("The route string contains invalid characters");
   });
 });
 

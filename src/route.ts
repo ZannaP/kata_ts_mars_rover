@@ -3,28 +3,20 @@ import { calculateInstruction } from "./calculate_instructions";
 const currentDate = new Date();
 
 export function checkRouteOnMap(
-  x: number,
-  y: number,
-  direction: string,
-  route: string,
+  position: Position,
+  route: Action[],
   map: Map
-): Position | boolean {
-  // Map is checked in plateauInit()
-  // Check Route string symbols
-  if (validateRoute(route) === false) return false;
-
-  let currentPosition: Position = { x: x, y: y, direction: direction };
-  console.log(currentPosition);
+): Position {
   // Calculate commands
-  route?.split("").forEach((command) => {
-    currentPosition = calculateInstruction(currentPosition, command);
+  route?.forEach((command) => {
+    position = calculateInstruction(position, command);
   });
-  console.log(currentPosition);
-  return currentPosition;
+  console.log(position);
+  return position;
 }
 
 // Is route a valid route from the symbols point of view???
-export function validateRoute(route: string): Action[] | boolean {
+export function validatedRoute(route: string): Action[] {
   // empty string
   if (route.length === 0) {
     console.log({
@@ -34,7 +26,7 @@ export function validateRoute(route: string): Action[] | boolean {
       author: `checkRoute('${route}')`,
       message: "The route string is empty",
     });
-    return false;
+    throw new Error("The route string is empty");
   }
   //string with invalid characters
   if (isAction(route) === false) {
@@ -45,13 +37,13 @@ export function validateRoute(route: string): Action[] | boolean {
       author: `checkRoute('${route}')`,
       message: "The route string contains invalid characters",
     });
-    return false;
+    throw new Error("The route string contains invalid characters");
   }
 
   return convertStringToActions(route);
 }
 
-export function validatePosition(
+export function validatedPosition(
   x: number,
   y: number,
   direction: string
@@ -89,16 +81,14 @@ function isAction(input: string): input is "L" | "R" | "M" {
 }
 
 function convertStringToActions(str: string): Action[] {
-  const actionArray: Action[] = [];
+  const validActions = new Set(["M", "R", "L"]);
+  const normalizedStr = str.toUpperCase();
 
-  for (let i = 0; i < str.length; i++) {
-    const char = str[i].toUpperCase() as Action; // Convert the character to uppercase and cast to Action type
-    if (char === "M" || char === "R" || char === "L") {
-      actionArray.push(char);
+  return Array.from(normalizedStr).map((char) => {
+    if (validActions.has(char)) {
+      return char as Action;
     } else {
       throw new Error(`Invalid action: ${char}`);
     }
-  }
-
-  return actionArray;
+  });
 }

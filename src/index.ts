@@ -1,7 +1,7 @@
 import { Map, Direction, Position } from "./types";
 import { moveRover } from "./rover";
 import { plateauInit } from "./plateau";
-import { validateRoute, validatePosition } from "./route";
+import { validatedRoute, validatedPosition } from "./route";
 
 export function processRoverMove() {
   // input
@@ -12,10 +12,13 @@ export function processRoverMove() {
   const startDirection = "N";
   const route = "MMSSM";
 
-  const currentMap = plateauInit(inputPlateauRightX, inputPlateauTopY);
-  const startPosition = validatePosition(startX, startY, startDirection);
-  const currentRoute = validateRoute(route);
-  const endPosition = moveRover(startPosition, currentRoute, currentMap);
+  const endPosition = moveRover(
+    validatedPosition(startX, startY, startDirection),
+    validatedRoute(route),
+    plateauInit(inputPlateauRightX, inputPlateauTopY)
+  );
+
   return endPosition;
 }
+
 processRoverMove();
