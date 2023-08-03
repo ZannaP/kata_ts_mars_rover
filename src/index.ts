@@ -13,7 +13,9 @@ export function processRoverMove() {
   const route = "MMSSM";
 
   const currentMap = plateauInit(inputPlateauRightX, inputPlateauTopY);
-  validatePosition(startX, startY, startDirection);
-  validateRoute(route);
+  const startPosition = validatePosition(startX, startY, startDirection);
+  const currentRoute = validateRoute(route);
+  const endPosition = moveRover(startPosition, currentRoute, currentMap);
+  return endPosition;
 }
 processRoverMove();
