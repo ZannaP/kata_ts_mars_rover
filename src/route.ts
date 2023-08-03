@@ -1,4 +1,4 @@
-import { Map, Position } from "./types";
+import { Map, Position, Action } from "./types";
 import { calculateInstruction } from "./calculate_instructions";
 const currentDate = new Date();
 
@@ -24,7 +24,7 @@ export function checkRouteOnMap(
 }
 
 // Is route a valid route from the symbols point of view???
-export function validateRoute(route: string): boolean {
+export function validateRoute(route: string): Action[] | boolean {
   // empty string
   if (route.length === 0) {
     console.log({
@@ -48,10 +48,16 @@ export function validateRoute(route: string): boolean {
     return false;
   }
 
-  return true;
+  return convertStringToActions(route);
 }
 
-export function validatePosition(x: number, y: number, direction: string) {}
+export function validatePosition(
+  x: number,
+  y: number,
+  direction: string
+): Position {
+  return;
+}
 
 export function checkPointOnMap(x: number, y: number, map: Map) {
   // check if point is on map
@@ -73,11 +79,26 @@ export function checkPointOnMap(x: number, y: number, map: Map) {
   }
 
   // check map status - if the point is available
-  // add code
+  // add code here
 
   return true;
 }
 
 function isAction(input: string): input is "L" | "R" | "M" {
   return ["L", "R", "M"].includes(input);
+}
+
+function convertStringToActions(str: string): Action[] {
+  const actionArray: Action[] = [];
+
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i].toUpperCase() as Action; // Convert the character to uppercase and cast to Action type
+    if (char === "M" || char === "R" || char === "L") {
+      actionArray.push(char);
+    } else {
+      throw new Error(`Invalid action: ${char}`);
+    }
+  }
+
+  return actionArray;
 }
