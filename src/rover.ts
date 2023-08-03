@@ -13,8 +13,8 @@ export function moveRover(
   // move on route
   // route.foreach {
   //   if checkPointOnMap(position.x, position.y, map) {
-  //        await position = calculateInstruction(position,command)
   //        await check subsystems
+  //        await position = calculateInstruction(position,command)
   //        create log
   //        }
   // }

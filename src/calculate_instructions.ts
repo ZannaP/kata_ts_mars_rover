@@ -1,4 +1,4 @@
-import { Position } from "./types";
+import { Position, getPreviousDirection, getNextDirection } from "./types";
 
 export function calculateInstruction(
   position: Position,
@@ -23,38 +23,13 @@ export function calculateInstruction(
       }
       break;
     case "L":
-      position.direction =
-        directions[
-          getPreviousCircularIndex(
-            directions.indexOf(position.direction),
-            directions.length
-          )
-        ];
+      position.direction = getPreviousDirection(position.direction);
       break;
     case "R":
-      position.direction =
-        directions[
-          getNextCircularIndex(
-            directions.indexOf(position.direction),
-            directions.length
-          )
-        ];
+      position.direction = getNextDirection(position.direction);
+      break;
       break;
   }
 
   return position;
-}
-
-function getNextCircularIndex(
-  currentIndex: number,
-  arrayLength: number
-): number {
-  return (currentIndex + 1) % arrayLength;
-}
-
-function getPreviousCircularIndex(
-  currentIndex: number,
-  arrayLength: number
-): number {
-  return (currentIndex - 1 + arrayLength) % arrayLength;
 }

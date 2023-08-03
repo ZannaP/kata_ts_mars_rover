@@ -1,4 +1,10 @@
-import { Map, Position, Action } from "./types";
+import {
+  Map,
+  Position,
+  Action,
+  isAction,
+  convertStringToActions,
+} from "./types";
 import { calculateInstruction } from "./calculate_instructions";
 const currentDate = new Date();
 
@@ -74,21 +80,4 @@ export function checkPointOnMap(x: number, y: number, map: Map) {
   // add code here
 
   return true;
-}
-
-function isAction(input: string): input is "L" | "R" | "M" {
-  return ["L", "R", "M"].includes(input);
-}
-
-function convertStringToActions(str: string): Action[] {
-  const validActions = new Set(["M", "R", "L"]);
-  const normalizedStr = str.toUpperCase();
-
-  return Array.from(normalizedStr).map((char) => {
-    if (validActions.has(char)) {
-      return char as Action;
-    } else {
-      throw new Error(`Invalid action: ${char}`);
-    }
-  });
 }
