@@ -11,7 +11,7 @@ export function checkRouteOnMap(
 ): Position | boolean {
   // Map is checked in plateauInit()
   // Check Route string symbols
-  if (checkRoute(route) === false) return false;
+  if (validateRoute(route) === false) return false;
 
   let currentPosition: Position = { x: x, y: y, direction: direction };
   console.log(currentPosition);
@@ -24,7 +24,7 @@ export function checkRouteOnMap(
 }
 
 // Is route a valid route from the symbols point of view???
-export function checkRoute(route: string): boolean {
+export function validateRoute(route: string): boolean {
   // empty string
   if (route.length === 0) {
     console.log({
@@ -50,6 +50,8 @@ export function checkRoute(route: string): boolean {
 
   return true;
 }
+
+export function validatePosition(x: number, y: number, direction: string) {}
 
 export function checkPointOnMap(x: number, y: number, map: Map) {
   // check if point is on map
