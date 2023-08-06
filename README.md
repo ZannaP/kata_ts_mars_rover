@@ -76,3 +76,9 @@ Here are the letters and their resultant action:
 **M** Moves the Rover forward by one grid point, maintaining the same heading/orientation
 
 N.B. Assume that the square directly North from (x, y) is (x, y+1).
+
+## 3️⃣ Data and Logic
+
+![Flow Chart for Mars Kata](https://github.com/ZannaP/kata_ts_mars_rover/blob/main/docs/Mars-Rover-Kata-Logic.jpg)
+
+### Plateau
