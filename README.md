@@ -84,3 +84,5 @@ N.B. Assume that the square directly North from (x, y) is (x, y+1).
 ### Plateau
 
 ![Flow Chart for Mars Kata](https://github.com/ZannaP/kata_ts_mars_rover/blob/main/docs/Mars-Rover-Kata-Plateau.jpg)
+
+Thanks for reading
