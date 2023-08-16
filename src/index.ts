@@ -3,15 +3,14 @@ import { moveRover } from "./rover";
 import { plateauInit } from "./plateau";
 import { validatedRoute, validatedPosition } from "./route";
 
-export function processRoverMove() {
-  // input
-  const inputPlateauRightX = 4;
-  const inputPlateauTopY = 2;
-  const startX = 0;
-  const startY = 0;
-  const startDirection = "N";
-  const route = "MMSSM";
-
+export function processRoverMove(
+  inputPlateauRightX: number,
+  inputPlateauTopY: number,
+  startX: number,
+  startY: number,
+  startDirection: Direction,
+  route: string
+) {
   const endPosition = moveRover(
     validatedPosition(startX, startY, startDirection),
     validatedRoute(route),
@@ -21,4 +20,4 @@ export function processRoverMove() {
   return endPosition;
 }
 
-processRoverMove();
+processRoverMove(4, 2, 0, 0, "N", "MMSSM");
