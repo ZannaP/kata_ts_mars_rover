@@ -20,4 +20,4 @@ export function processRoverMove(
   return endPosition;
 }
 
-processRoverMove(4, 2, 0, 0, "N", "MMSSM");
+processRoverMove(4, 2, 0, 0, "N", "MMRM");

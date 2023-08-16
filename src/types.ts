@@ -36,8 +36,17 @@ export function getNextDirection(direction: Direction): Direction {
   return directions[nextIndex];
 }
 
-export function isAction(input: string): input is "L" | "R" | "M" {
+// for one character
+export function isActionType(input: string): input is "L" | "R" | "M" {
   return ["L", "R", "M"].includes(input);
+}
+
+// for whole string
+export function isAction(input: string) {
+  for (let char of input.split("")) {
+    if (isActionType(char) === false) return false;
+  }
+  return true;
 }
 
 export function convertStringToActions(str: string): Action[] {
