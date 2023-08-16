@@ -45,6 +45,14 @@ describe("test checkPointOnMap function", () => {
     ];
     expect(checkPointOnMap(0, 0, myMap)).toBe(true);
   });
+  test("it returns true if the point position is in the left top corner of the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(0, 2, myMap)).toBe(true);
+  });
   test("it returns true if the point position is in the top right corner of the map", () => {
     const myMap: Map = [
       [1, 1, 1, 1, 1],
@@ -52,6 +60,15 @@ describe("test checkPointOnMap function", () => {
       [1, 1, 1, 1, 1],
     ];
     expect(checkPointOnMap(4, 2, myMap)).toBe(true);
+  });
+
+  test("it returns true if the point position is in the bottom right corner of the map", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(4, 0, myMap)).toBe(true);
   });
   test("it returns false if the point position is in the (top+1, right) corner of the map", () => {
     const myMap: Map = [
