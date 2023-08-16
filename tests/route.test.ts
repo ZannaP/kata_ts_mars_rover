@@ -37,6 +37,23 @@ describe("test checkPointOnMap function", () => {
     ];
     expect(checkPointOnMap(-7, -1, myMap)).toBe(false);
   });
+  test("it returns false if the point position is not on the map in the MINUS part", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(-7, 2, myMap)).toBe(false);
+  });
+
+  test("it returns false if the point position is not on the map in the MINUS part", () => {
+    const myMap: Map = [
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+      [1, 1, 1, 1, 1],
+    ];
+    expect(checkPointOnMap(1, -2, myMap)).toBe(false);
+  });
   test("it returns true if the point position is in the left bottom corner of the map", () => {
     const myMap: Map = [
       [1, 1, 1, 1, 1],
