@@ -19,7 +19,6 @@ export function checkRouteOnMap(
   route?.forEach((command) => {
     position = calculateInstruction(position, command);
   });
-  console.log(position);
   return position;
 }
 

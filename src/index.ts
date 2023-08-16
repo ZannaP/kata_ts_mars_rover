@@ -1,7 +1,7 @@
 import { Map, Direction, Position } from "./types";
 import { moveRover } from "./rover";
 import { plateauInit } from "./plateau";
-import { validatedRoute, validatedPosition } from "./route";
+import { validatedRoute, validatedPosition, checkRouteOnMap } from "./route";
 import { checkSystems } from "./subsystems/all_systems";
 
 export async function processRoverMove(
@@ -12,15 +12,21 @@ export async function processRoverMove(
   startDirection: Direction,
   route: string
 ) {
-  const endPosition = moveRover(
-    validatedPosition(startX, startY, startDirection),
-    validatedRoute(route),
-    plateauInit(inputPlateauRightX, inputPlateauTopY)
-  );
+  const startPosition = validatedPosition(startX, startY, startDirection);
+  const map = plateauInit(inputPlateauRightX, inputPlateauTopY);
+  const path = validatedRoute(route);
+  const goal = checkRouteOnMap(startPosition, path, map);
+  console.log("The route's goal is", goal);
 
   const checkSystemsResult = await checkSystems();
+
+  const endPosition = moveRover(
+    validatedPosition(startX, startY, startDirection),
+    path,
+    map
+  );
 
   return endPosition;
 }
 
-processRoverMove(4, 2, 0, 0, "N", "MMRM");
+processRoverMove(4, 5, 1, 0, "N", "MMRM");

@@ -1,22 +1,19 @@
 import { Map, Position, Action } from "./types";
-import { checkRouteOnMap } from "./route";
-export function moveRover(
+import { checkSystems } from "./subsystems/all_systems";
+import { calculateInstruction } from "./calculate_instructions";
+
+export async function moveRover(
   position: Position,
   route: Action[],
   map: Map
-): Position {
-  checkRouteOnMap(position, route, map);
-
-  // check subsystems
-  // await ...
-
+): Promise<Position> {
   // move on route
-  // route.foreach {
-  //   if checkPointOnMap(position.x, position.y, map) {
-  //        await check subsystems
-  //        await position = calculateInstruction(position,command)
-  //        create log
-  //        }
-  // }
-  return;
+  for (const command of route) {
+    // check subsystems
+    let checkSystemsResult = await checkSystems();
+    position = calculateInstruction(position, command);
+    console.log("I am on ", position);
+  }
+  console.log("Finish on ", position);
+  return position;
 }
