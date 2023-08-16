@@ -1,6 +1,7 @@
 import {
   Map,
   Position,
+  Direction,
   Action,
   isAction,
   convertStringToActions,
@@ -8,6 +9,7 @@ import {
 import { calculateInstruction } from "./calculate_instructions";
 const currentDate = new Date();
 
+// Calculates the detour of the path and checks if each point is on the map and is accessible
 export function checkRouteOnMap(
   position: Position,
   route: Action[],
@@ -49,12 +51,17 @@ export function validatedRoute(route: string): Action[] {
   return convertStringToActions(route);
 }
 
+// return object:Position from input
 export function validatedPosition(
   x: number,
   y: number,
-  direction: string
+  direction: Direction
 ): Position {
-  return;
+  return {
+    x: x,
+    y: y,
+    direction: direction,
+  };
 }
 
 export function checkPointOnMap(x: number, y: number, map: Map) {

@@ -1,5 +1,10 @@
 import { Map, Position, Action } from "../src/types";
-import { validatedRoute, checkPointOnMap, checkRouteOnMap } from "../src/route";
+import {
+  validatedRoute,
+  checkPointOnMap,
+  checkRouteOnMap,
+  validatedPosition,
+} from "../src/route";
 
 describe("test validatedRoute function", () => {
   test("it throws an error if route string is empty", () => {
@@ -87,5 +92,15 @@ describe("test checkRouteOnMap function", () => {
     const myRoute: Action[] = ["M", "M", "R", "M"];
     const endPoint: Position = { x: 1, y: 2, direction: "E" };
     expect(checkRouteOnMap(myPosition, myRoute, myMap)).toEqual(endPoint);
+  });
+});
+
+describe("test validatedPosition function", () => {
+  test("return position object from arguments", () => {
+    expect(validatedPosition(2, 4, "N")).toEqual({
+      x: 2,
+      y: 4,
+      direction: "N",
+    });
   });
 });
