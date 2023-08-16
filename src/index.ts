@@ -18,8 +18,8 @@ export async function processRoverMove(
     plateauInit(inputPlateauRightX, inputPlateauTopY)
   );
 
-  const checkSustemsResult = await checkSystems();
-  console.log(checkSustemsResult);
+  const checkSystemsResult = await checkSystems();
+
   return endPosition;
 }
 
