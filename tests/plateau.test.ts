@@ -20,4 +20,22 @@ describe("test plateauInit function", () => {
     ];
     expect(plateauInit(4, 2)).toEqual(expected);
   });
+  // check if top and right are positive
+  test("it throws an error if top and right are negative", () => {
+    expect(() => {
+      plateauInit(-1, 0);
+    }).toThrow(
+      "The negative input for 'right' parameter in plateauInit function"
+    );
+    expect(() => {
+      plateauInit(5, -10);
+    }).toThrow(
+      "The negative input for 'top' parameter in plateauInit function"
+    );
+    expect(() => {
+      plateauInit(-5, -10);
+    }).toThrow(
+      "The negative input for 'top' and 'right' parameters in plateauInit function"
+    );
+  });
 });
