@@ -2,8 +2,9 @@ import { Map, Direction, Position } from "./types";
 import { moveRover } from "./rover";
 import { plateauInit } from "./plateau";
 import { validatedRoute, validatedPosition } from "./route";
+import { checkSystems } from "./subsystems/all_systems";
 
-export function processRoverMove(
+export async function processRoverMove(
   inputPlateauRightX: number,
   inputPlateauTopY: number,
   startX: number,
@@ -17,6 +18,8 @@ export function processRoverMove(
     plateauInit(inputPlateauRightX, inputPlateauTopY)
   );
 
+  const checkSustemsResult = await checkSystems();
+  console.log(checkSustemsResult);
   return endPosition;
 }
 
