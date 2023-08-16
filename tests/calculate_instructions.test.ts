@@ -53,4 +53,14 @@ describe("test calculateInstruction function", () => {
     const endPoint: Position = { x: 0, y: 0, direction: "S" };
     expect(calculateInstruction(startPoint, "L")).toEqual(endPoint);
   });
+  test("rotates from South to West if R", () => {
+    const startPoint: Position = { x: 0, y: 0, direction: "S" };
+    const endPoint: Position = { x: 0, y: 0, direction: "W" };
+    expect(calculateInstruction(startPoint, "R")).toEqual(endPoint);
+  });
+  test("rotates from South to East if L", () => {
+    const startPoint: Position = { x: 0, y: 0, direction: "S" };
+    const endPoint: Position = { x: 0, y: 0, direction: "E" };
+    expect(calculateInstruction(startPoint, "L")).toEqual(endPoint);
+  });
 });
