@@ -25,12 +25,12 @@ describe("test plateauInit function", () => {
     expect(() => {
       plateauInit(-1, 0);
     }).toThrow(
-      "The negative input for 'right' parameter in plateauInit function"
+      "The negative input for 'top' parameter in plateauInit function"
     );
     expect(() => {
       plateauInit(5, -10);
     }).toThrow(
-      "The negative input for 'top' parameter in plateauInit function"
+      "The negative input for 'right' parameter in plateauInit function"
     );
     expect(() => {
       plateauInit(-5, -10);
